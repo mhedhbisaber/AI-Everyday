@@ -30,9 +30,9 @@ Before running the script, ensure you have the following:
 
 ### Azure OpenAI Configuration
 
-- **Deployment Name**: `gpt-4o`
+- **Deployment Name**: `<deployment-name>`
 - **API Version**: `2024-08-01-preview`
-- **API Endpoint**: `https://mywiki-ai.openai.azure.com/`
+- **API Endpoint**: `https://XXXX.openai.azure.com/`
 - **Model Name**: `gpt-4o`
 
 ## Usage
@@ -114,10 +114,10 @@ from langchain_openai import AzureChatOpenAI
 def configure_llm(openai_api_key):
     """Configure the GPT-4 model with the provided OpenAI API key."""
     return AzureChatOpenAI(
-        azure_deployment="gpt-4o",
+        azure_deployment="<deployment-name>",
         api_version="2024-08-01-preview",
         api_key=openai_api_key,
-        azure_endpoint="https://mywiki-ai.openai.azure.com/",
+        azure_endpoint="https://XXXX.openai.azure.com/",
         model="gpt-4o"
     )
 
