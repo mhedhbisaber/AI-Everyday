@@ -5,7 +5,7 @@ import httpx
 def bing_search_tool(query, bing_api_key):
     url = "https://api.bing.microsoft.com/v7.0/search"
     headers = {"Ocp-Apim-Subscription-Key": bing_api_key}
-    params = {"q": query, "count": 3, "mkt": "en-US", "freshness": "Week"}  # Limit to one result
+    params = {"q": query, "count": 3, "mkt": "en-US", "freshness": "Week"}  # more information here: https://learn.microsoft.com/en-us/bing/search-apis/bing-web-search/reference/query-parameters
     response = httpx.get(url, headers=headers, params=params)
     results = response.json()
     print(results)
@@ -13,12 +13,6 @@ def bing_search_tool(query, bing_api_key):
     if "webPages" in results:
         return "\n".join([f"Title: {item['name']}\nURL: {item['url']}\nSnippet: {item['snippet']}" for item in results["webPages"].get("value", [])])
     return "No results found."
-
-search_tool = Tool(
-    name="Bing Search",
-    func=bing_search_tool,
-    description="Use this tool to search the web content"
-)
 
 def verify_content_with_bing(content, bing_api_key):
     """
