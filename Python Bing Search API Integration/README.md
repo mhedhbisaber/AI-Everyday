@@ -49,12 +49,6 @@ def bing_search_tool(query, bing_api_key):
         return "\n".join([f"Title: {item['name']}\nURL: {item['url']}\nSnippet: {item['snippet']}" for item in results["webPages"].get("value", [])])
     return "No results found."
 
-search_tool = Tool(
-    name="Bing Search",
-    func=bing_search_tool,
-    description="Using Microsoft Bing Search API in Python"
-)
-
 def verify_content_with_bing(content, bing_api_key):
     """
     Verify the factual accuracy of the content using Bing search.
