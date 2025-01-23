@@ -1,5 +1,3 @@
-Sure, I can follow that template for your `README.md` file. Here's a draft based on your code:
-
 ```markdown
 # Step-by-Step Guide to Using Azure Cognitive Search with OpenAI in Python
 
